@@ -2,6 +2,7 @@
   "type": "create:filling",
   "ingredients": [
     {
+      "type": "fluid_stack",
       "fluid": "tofucreate:soymilk_apple",
       "amount": 250
     },
@@ -11,7 +12,9 @@
   ],
   "results": [
     {
-      "item": "tofucraft:soymilk_apple"
+      "item": {
+        "id": "tofucraft:soymilk_apple"
+      }
     }
   ]
 }

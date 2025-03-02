@@ -1,24 +1,23 @@
 package mod.ckenja.tofucreate.create;
 
 import baguchan.tofucraft.registry.TofuFluids;
-import baguchan.tofucraft.registry.TofuItems;
 import baguchan.tofucraft.utils.RecipeHelper;
-import com.simibubi.create.api.behaviour.BlockSpoutingBehaviour;
+import com.simibubi.create.api.behaviour.spouting.BlockSpoutingBehaviour;
 import com.simibubi.create.content.fluids.spout.SpoutBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
-public class SpoutTofu extends BlockSpoutingBehaviour {
+public class SpoutTofu implements BlockSpoutingBehaviour {
 
     @Override
     public int fillBlock(Level world, BlockPos pos, SpoutBlockEntity spout, FluidStack availableFluid, boolean simulate) {
         if(availableFluid.getFluid() != TofuFluids.BITTERN.get())
             return 0;
-        ItemStack result = RecipeHelper.getBitternResult((ServerLevel) world, world.getFluidState(pos).getType(), new ItemStack(TofuItems.BITTERN_BOTTLE.get()));
+        ItemStack result = RecipeHelper.getBitternResult((ServerLevel) world, world.getFluidState(pos).getType(), availableFluid);
         if (result == null)
             return 0;
         if(!simulate) {
@@ -27,4 +26,5 @@ public class SpoutTofu extends BlockSpoutingBehaviour {
         }
         return 500;
     }
+
 }

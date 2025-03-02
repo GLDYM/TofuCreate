@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "fluid": "tofucraft:soymilk",
+      "amount": 1000
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "results": [
+    {
+      "item": "tofucraft:bucket_soymilk"
+    }
+  ]
+}

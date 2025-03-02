@@ -4,11 +4,11 @@ import mod.ckenja.tofucreate.TofuCreate;
 import mod.ckenja.tofucreate.register.AllItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 import static mod.ckenja.tofucreate.TofuCreate.prefix;
 
@@ -39,7 +39,7 @@ public class ItemModelGenerator extends ItemModelProvider {
         return builder;
     }
 
-    private ItemModelBuilder singleTex(RegistryObject<?> item) {
+    private ItemModelBuilder singleTex(DeferredItem<?> item) {
         return generated(item.getId().getPath(), prefix("item/" + item.getId().getPath()));
     }
 }

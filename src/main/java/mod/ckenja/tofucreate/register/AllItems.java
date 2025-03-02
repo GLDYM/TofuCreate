@@ -2,17 +2,16 @@ package mod.ckenja.tofucreate.register;
 
 import mod.ckenja.tofucreate.TofuCreate;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class AllItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TofuCreate.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(TofuCreate.MODID);
 
-    public static final RegistryObject<Item> TOFU_METAL_PLATE = ITEMS.register("tofumetal_plate", () -> new Item((new Item.Properties())));
-    public static final RegistryObject<Item> TF_COMPACT_CIRCUIT = ITEMS.register("tf_compact_circuit", () -> new Item((new Item.Properties())));
-    public static final RegistryObject<Item> INCOMPLETE_TF_COMPACT_CIRCUIT = ITEMS.register("incomplete_tf_compact_circuit", () -> new Item((new Item.Properties())));
-    public static final RegistryObject<Item> TOFU_PRECISION_MECHANISM = ITEMS.register("tofu_precision_mechanism", () -> new Item((new Item.Properties())));
-    public static final RegistryObject<Item> INCOMPLETE_TOFU_PRECISION_MECHANISM = ITEMS.register("incomplete_tofu_precision_mechanism", () -> new Item((new Item.Properties())));
+    public static final DeferredItem<Item> TOFU_METAL_PLATE = ITEMS.registerItem("tofumetal_plate", (properties) -> new Item((properties)));
+    public static final DeferredItem<Item> TF_COMPACT_CIRCUIT = ITEMS.registerItem("tf_compact_circuit", (properties) -> new Item((properties)));
+    public static final DeferredItem<Item> INCOMPLETE_TF_COMPACT_CIRCUIT = ITEMS.registerItem("incomplete_tf_compact_circuit", (properties) -> new Item((properties)));
+    public static final DeferredItem<Item> TOFU_PRECISION_MECHANISM = ITEMS.registerItem("tofu_precision_mechanism", (properties) -> new Item((properties)));
+    public static final DeferredItem<Item> INCOMPLETE_TOFU_PRECISION_MECHANISM = ITEMS.registerItem("incomplete_tofu_precision_mechanism", (properties) -> new Item((properties)));
 }
 

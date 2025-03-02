@@ -1,9 +1,10 @@
 package mod.ckenja.tofucreate;
 
+import baguchan.tofucraft.registry.TofuBlocks;
 import com.mojang.logging.LogUtils;
-import com.simibubi.create.Create;
+import com.simibubi.create.AllBlockEntityTypes;
+import com.simibubi.create.api.behaviour.spouting.BlockSpoutingBehaviour;
 import com.simibubi.create.api.event.BlockEntityBehaviourEvent;
-import com.simibubi.create.content.kinetics.press.MechanicalPressBlockEntity;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import mod.ckenja.tofucreate.create.BlockPressBehaviour;
 import mod.ckenja.tofucreate.create.SpoutTofu;
@@ -12,39 +13,30 @@ import mod.ckenja.tofucreate.register.AllCreativeTabs;
 import mod.ckenja.tofucreate.register.AllFluids;
 import mod.ckenja.tofucreate.register.AllItems;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
 
 import java.util.Locale;
 
-import static com.simibubi.create.api.behaviour.BlockSpoutingBehaviour.addCustomSpoutInteraction;
 
 @Mod(BuildConfig.MODID)
 public class TofuCreate {
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-    public static final IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
     public static final CreateRegistrate registrate = CreateRegistrate.create(BuildConfig.MODID);
     public static final String MODID = "tofucreate";
 
-    public TofuCreate(){
-        addCustomSpoutInteraction(Create.asResource(MODID), new SpoutTofu());
-        modEventBus.addListener(this::setup);
-        modEventBus.addListener(this::enqueueIMC);
-        modEventBus.addListener(this::processIMC);
-        forgeEventBus.addGenericListener(MechanicalPressBlockEntity.class, (BlockEntityBehaviourEvent<MechanicalPressBlockEntity> event) -> event
-                .attach(new BlockPressBehaviour(event.getBlockEntity())));
-        registrate.registerEventListeners(modEventBus);
+    public TofuCreate(ModContainer modContainer, IEventBus modBus) {
+        modBus.addListener(this::setup);
+        NeoForge.EVENT_BUS.addListener(this::setupBehavior);
+        registrate.registerEventListeners(modBus);
         AllFluids.register();
-        AllBlocks.register(modEventBus);
-        AllItems.ITEMS.register(modEventBus);
-        AllCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+        AllBlocks.register(modBus);
+        AllItems.ITEMS.register(modBus);
+        AllCreativeTabs.CREATIVE_MODE_TABS.register(modBus);
         //AllMovementBehaviours.registerBehaviour(AllBlocks.MECHANICAL_PRESS.get(), new BlockPressMovementBehavior());
         //AllMovementBehaviours.registerBehaviour(AllBlocks.SPOUT.get(), new BlockSpoutMovementBehavior());
         //AllRecipeTypes.register(modEventBus);
@@ -53,18 +45,18 @@ public class TofuCreate {
         //DistExecutor.safeRunForDist(()-> ClientProxy::new, () -> ServerProxy::new);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
+    private void setup(FMLCommonSetupEvent event) {
+        BlockSpoutingBehaviour.BY_BLOCK.register(TofuBlocks.SOYMILK.get(), new SpoutTofu());
     }
 
-    private void enqueueIMC(final InterModEnqueueEvent event) {
-        //使い道、なさそう
+    private void setupBehavior(final BlockEntityBehaviourEvent event) {
+        event.forType(AllBlockEntityTypes.MECHANICAL_PRESS.get(), smartBlockEntity -> {
+            event.attach(new BlockPressBehaviour(smartBlockEntity));
+        });
     }
 
-    private void processIMC(final InterModProcessEvent event) {
-        //そもそも名前なんでこんなわかりにくやつなの
-    }
 
     public static ResourceLocation prefix(String name) {
-        return new ResourceLocation(TofuCreate.MODID, name.toLowerCase(Locale.ROOT));
+        return ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, name.toLowerCase(Locale.ROOT));
     }
 }

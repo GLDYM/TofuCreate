@@ -10,9 +10,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.FluidType;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.fluids.BaseFlowingFluid;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidType;
 
 import java.util.function.Consumer;
 
@@ -20,38 +21,46 @@ public class AllFluids {
     public static final CreateRegistrate registrate = TofuCreate.registrate;
 
     public static final FluidEntry<VirtualFluid> SOYMILK_ANNIN =
-            registrate.virtualFluid("soymilk_annin", new ResourceLocation(TofuCraftReload.MODID, "block/soymilk"), new ResourceLocation(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFFFFFF, 0xFFFFFF), VirtualFluid::new)
+            registrate.virtualFluid("soymilk_annin", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFFFFFF, 0xFFFFFF), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
     public static final FluidEntry<VirtualFluid> SOYMILK_APPLE =
-            registrate.virtualFluid("soymilk_apple", new ResourceLocation(TofuCraftReload.MODID, "block/soymilk"), new ResourceLocation(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFEEDC85, 0xEEDC85), VirtualFluid::new)
+            registrate.virtualFluid("soymilk_apple", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFEEDC85, 0xEEDC85), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
 
     public static final FluidEntry<VirtualFluid> SOYMILK_COCOA =
-            registrate.virtualFluid("soymilk_cocoa", new ResourceLocation(TofuCraftReload.MODID, "block/soymilk"), new ResourceLocation(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFF8B3C0D, 0x8B3C0D), VirtualFluid::new)
+            registrate.virtualFluid("soymilk_cocoa", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFF8B3C0D, 0x8B3C0D), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
     public static final FluidEntry<VirtualFluid> SOYMILK_FRUITS =
-            registrate.virtualFluid("soymilk_fruits", new ResourceLocation(TofuCraftReload.MODID, "block/soymilk"), new ResourceLocation(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFF7C00A, 0xF7C00A), VirtualFluid::new)
+            registrate.virtualFluid("soymilk_fruits", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFF7C00A, 0xF7C00A), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
     public static final FluidEntry<VirtualFluid> SOYMILK_HONEY =
-            registrate.virtualFluid("soymilk_honey", new ResourceLocation(TofuCraftReload.MODID, "block/soymilk"), new ResourceLocation(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFFA65B, 0xFFA65B), VirtualFluid::new)
+            registrate.virtualFluid("soymilk_honey", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFFA65B, 0xFFA65B), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
     public static final FluidEntry<VirtualFluid> SOYMILK_KINAKO =
-            registrate.virtualFluid("soymilk_kinako", new ResourceLocation(TofuCraftReload.MODID, "block/soymilk"), new ResourceLocation(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFD3B92C, 0xD3B92C), VirtualFluid::new)
+            registrate.virtualFluid("soymilk_kinako", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFD3B92C, 0xD3B92C), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
 
     public static final FluidEntry<VirtualFluid> SOYMILK_PUDDING =
-            registrate.virtualFluid("soymilk_pudding", new ResourceLocation(TofuCraftReload.MODID, "block/soymilk"), new ResourceLocation(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFEEDC85, 0xEEDC85), VirtualFluid::new)
+            registrate.virtualFluid("soymilk_pudding", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFEEDC85, 0xEEDC85), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
 
     public static final FluidEntry<VirtualFluid> SOYMILK_PUMPKIN =
-            registrate.virtualFluid("soymilk_pumpkin", new ResourceLocation(TofuCraftReload.MODID, "block/soymilk"), new ResourceLocation(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFFA556, 0xFFA556), VirtualFluid::new)
+            registrate.virtualFluid("soymilk_pumpkin", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFFA556, 0xFFA556), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
 
     public static final FluidEntry<VirtualFluid> SOYMILK_RAMUNE =
-            registrate.virtualFluid("soymilk_ramune", new ResourceLocation(TofuCraftReload.MODID, "block/soymilk"), new ResourceLocation(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFF9EC4FB, 0x9EC4FB), VirtualFluid::new)
+            registrate.virtualFluid("soymilk_ramune", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFF9EC4FB, 0x9EC4FB), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
     public static void register() {}
 
+
+    public static VirtualFluid createSource(BaseFlowingFluid.Properties properties) {
+        return new VirtualFluid(properties, true);
+    }
+
+    public static VirtualFluid createFlowing(BaseFlowingFluid.Properties properties) {
+        return new VirtualFluid(properties, false);
+    }
 
     public static FluidBuilder.FluidTypeFactory create(int color) {
         return (p, s, f) -> {

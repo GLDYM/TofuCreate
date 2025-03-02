@@ -4,14 +4,14 @@ import mod.ckenja.tofucreate.TofuCreate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(modid = TofuCreate.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = TofuCreate.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
@@ -21,7 +21,7 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         event.getGenerator().addProvider(event.includeClient(), new ItemModelGenerator(packOutput, event.getExistingFileHelper()));
 
-        event.getGenerator().addProvider(true, new ModPressingRecipeGen(packOutput));
-        event.getGenerator().addProvider(true, new ModSequencedAssemblyRecipeGen(packOutput));
+        event.getGenerator().addProvider(true, new ModPressingRecipeGen(packOutput, lookupProvider));
+        event.getGenerator().addProvider(true, new ModSequencedAssemblyRecipeGen(packOutput, lookupProvider));
     }
 }

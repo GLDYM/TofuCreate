@@ -3,7 +3,7 @@
   "ingredients": [
     {
       "type": "fluid_stack",
-      "fluid": "tofucreate:soymilk_annin",
+      "fluid": "tofucraft:bittern",
       "amount": 250
     },
     {
@@ -13,7 +13,7 @@
   "results": [
     {
       "item": {
-        "id": "tofucraft:soymilk_annin"
+        "id": "tofucraft:bittern_bottle"
       }
     }
   ]

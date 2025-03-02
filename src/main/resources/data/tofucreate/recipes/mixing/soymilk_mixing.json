@@ -1,0 +1,14 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "tofucraft:seeds_soybeans"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "tofucraft:soymilk",
+      "amount": 1000
+    }
+  ]
+}

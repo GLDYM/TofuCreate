@@ -2,8 +2,7 @@
   "type": "create:filling",
   "ingredients": [
     {
-      "type": "fluid_stack",
-      "fluid": "tofucreate:soymilk_annin",
+      "fluid": "tofucraft:soymilk_soul",
       "amount": 250
     },
     {
@@ -12,9 +11,7 @@
   ],
   "results": [
     {
-      "item": {
-        "id": "tofucraft:soymilk_annin"
-      }
+      "item": "tofucraft:soymilk_soul_bottle"
     }
   ]
 }
