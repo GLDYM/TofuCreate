@@ -1,0 +1,88 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "tofucreate:tofumetal_plate"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "chance": 120.0,
+      "item": {
+        "id": "tofucreate:tofu_precision_mechanism"
+      }
+    },
+    {
+      "chance": 8.0,
+      "item": {
+        "id": "tofucreate:tofumetal_plate"
+      }
+    },
+    {
+      "chance": 2.0,
+      "item": {
+        "id": "minecraft:redstone"
+      }
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tofucreate:incomplete_tofu_precision_mechanism"
+        },
+        {
+          "item": "tofucraft:tofugem"
+        }
+      ],
+      "results": [
+        {
+          "item": {
+            "id": "tofucreate:incomplete_tofu_precision_mechanism"
+          }
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tofucreate:incomplete_tofu_precision_mechanism"
+        },
+        {
+          "item": "minecraft:redstone"
+        }
+      ],
+      "results": [
+        {
+          "item": {
+            "id": "tofucreate:incomplete_tofu_precision_mechanism"
+          }
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tofucreate:incomplete_tofu_precision_mechanism"
+        },
+        {
+          "item": "tofucreate:tf_compact_circuit"
+        }
+      ],
+      "results": [
+        {
+          "item": {
+            "id": "tofucreate:incomplete_tofu_precision_mechanism"
+          }
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "item": {
+      "id": "tofucreate:incomplete_tofu_precision_mechanism"
+    }
+  }
+}

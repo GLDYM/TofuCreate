@@ -20,7 +20,9 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         event.getGenerator().addProvider(event.includeClient(), new ItemModelGenerator(packOutput, event.getExistingFileHelper()));
-
+        event.getGenerator().addProvider(true, new ModEmptyingRecipeGen(packOutput, lookupProvider));
+        event.getGenerator().addProvider(true, new ModFillingRecipeGen(packOutput, lookupProvider));
+        event.getGenerator().addProvider(true, new ModMixingRecipeGen(packOutput, lookupProvider));
         event.getGenerator().addProvider(true, new ModPressingRecipeGen(packOutput, lookupProvider));
         event.getGenerator().addProvider(true, new ModSequencedAssemblyRecipeGen(packOutput, lookupProvider));
     }

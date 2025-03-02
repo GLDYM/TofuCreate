@@ -1,0 +1,20 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "type": "fluid_stack",
+      "amount": 250,
+      "fluid": "tofucreate:soymilk_pumpkin"
+    }
+  ],
+  "results": [
+    {
+      "item": {
+        "id": "tofucraft:soymilk_pumpkin"
+      }
+    }
+  ]
+}

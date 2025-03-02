@@ -1,0 +1,14 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "tofucraft:seeds_soybeans_soul"
+    }
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "id": "tofucraft:soymilk_soul"
+    }
+  ]
+}

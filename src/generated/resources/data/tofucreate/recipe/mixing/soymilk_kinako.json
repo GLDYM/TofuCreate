@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "tofucraft:seeds_soybeans"
+    },
+    {
+      "item": "tofucraft:kinako"
+    }
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "id": "tofucreate:soymilk_kinako"
+    }
+  ]
+}
