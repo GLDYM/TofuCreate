@@ -5,13 +5,15 @@
       "item": "tofucraft:seeds_soybeans"
     },
     {
-      "item": "minecraft:honey_bottle"
+      "type": "fluid_stack",
+      "amount": 250,
+      "fluid": "create:tea"
     }
   ],
   "results": [
     {
       "amount": 1250,
-      "id": "tofucreate:soymilk_honey"
+      "id": "tofucreate:soymilk_tea"
     }
   ]
 }

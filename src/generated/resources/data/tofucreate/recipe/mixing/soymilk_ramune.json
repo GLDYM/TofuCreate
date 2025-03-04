@@ -5,13 +5,16 @@
       "item": "tofucraft:seeds_soybeans"
     },
     {
-      "item": "minecraft:honey_bottle"
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:light_blue_dye"
     }
   ],
   "results": [
     {
-      "amount": 1250,
-      "id": "tofucreate:soymilk_honey"
+      "amount": 1000,
+      "id": "tofucreate:soymilk_ramune"
     }
   ]
 }

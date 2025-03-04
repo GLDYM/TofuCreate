@@ -51,6 +51,12 @@ public class AllFluids {
     public static final FluidEntry<VirtualFluid> SOYMILK_RAMUNE =
             registrate.virtualFluid("soymilk_ramune", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFF9EC4FB, 0x9EC4FB), AllFluids::createSource, AllFluids::createFlowing)
                     .register();
+    public static final FluidEntry<VirtualFluid> SOYMILK_SAKURA =
+            registrate.virtualFluid("soymilk_sakura", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFBCED4, 0xFBCED4), AllFluids::createSource, AllFluids::createFlowing)
+                    .register();
+    public static final FluidEntry<VirtualFluid> SOYMILK_TEA =
+            registrate.virtualFluid("soymilk_tea", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFACF96, 0xFACF96), AllFluids::createSource, AllFluids::createFlowing)
+                    .register();
     public static void register() {}
 
 

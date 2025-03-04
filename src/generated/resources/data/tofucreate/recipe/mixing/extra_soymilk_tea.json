@@ -2,18 +2,20 @@
   "type": "create:mixing",
   "ingredients": [
     {
-      "item": "tofucraft:seeds_soybeans"
+      "type": "fluid_stack",
+      "amount": 1000,
+      "fluid": "tofucraft:soymilk"
     },
     {
       "type": "fluid_stack",
       "amount": 250,
-      "fluid": "create:honey"
+      "fluid": "create:tea"
     }
   ],
   "results": [
     {
       "amount": 1250,
-      "id": "tofucreate:soymilk_honey"
+      "id": "tofucreate:soymilk_tea"
     }
   ]
 }

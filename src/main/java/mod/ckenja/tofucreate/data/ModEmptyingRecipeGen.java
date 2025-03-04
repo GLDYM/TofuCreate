@@ -39,7 +39,17 @@ public class ModEmptyingRecipeGen extends ProcessingRecipeGen {
             SOYMILK_PUDDING = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_pudding"), b -> b
                     .output(AllFluids.SOYMILK_PUDDING.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_PUDDING.get())),
             SOYMILK_KINAKO = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_kinako"), b -> b
-                    .output(AllFluids.SOYMILK_KINAKO.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_KINAKO.get()));
+                    .output(AllFluids.SOYMILK_KINAKO.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_KINAKO.get())),
+            SOYMILK_ANNIN = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_annin"), b -> b
+                    .output(AllFluids.SOYMILK_ANNIN.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_ANNIN.get())),
+            SOYMILK_RAMUNE = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_ramune"), b -> b
+                    .output(AllFluids.SOYMILK_RAMUNE.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_RAMUNE.get())),
+            SOYMILK_SAKURA = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_sakura"), b -> b
+                    .output(AllFluids.SOYMILK_SAKURA.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_SAKURA.get())),
+            SOYMILK_TEA = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_tea"), b -> b
+                    .output(AllFluids.SOYMILK_TEA.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_TEA.get()));
+
+
 
 
     public ModEmptyingRecipeGen(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
