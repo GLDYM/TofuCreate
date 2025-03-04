@@ -1,0 +1,18 @@
+{
+  "items": "tofucraft:seeds_soybeans_nether",
+  "knockback": 0.25,
+  "on_block_hit": {
+    "type": "create:plant_crop",
+    "block": "tofucraft:soybean_nether"
+  },
+  "pre_entity_hit": {
+    "type": "create:set_on_fire",
+    "ticks": 3
+  },
+  "reload_ticks": 3,
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "sound_pitch": 1.2,
+  "velocity_multiplier": 1.5
+}

@@ -7,8 +7,10 @@ import com.simibubi.create.api.equipment.potatoCannon.PotatoCannonProjectileType
 import com.simibubi.create.api.registry.CreateRegistries;
 import com.simibubi.create.content.equipment.potatoCannon.AllPotatoProjectileBlockHitActions;
 import com.simibubi.create.content.equipment.potatoCannon.AllPotatoProjectileEntityHitActions;
+import mod.ckenja.tofucreate.TofuCreate;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 
 public class ModAllPotatoProjectileTypes {
     public static final ResourceKey<PotatoCannonProjectileType> FALLBACK = ResourceKey.create(CreateRegistries.POTATO_PROJECTILE_TYPE, Create.asResource("fallback"));
@@ -59,6 +61,6 @@ public class ModAllPotatoProjectileTypes {
     }
 
     private static void register(BootstrapContext<PotatoCannonProjectileType> ctx, String name, PotatoCannonProjectileType type) {
-        ctx.register(ResourceKey.create(CreateRegistries.POTATO_PROJECTILE_TYPE, Create.asResource(name)), type);
+        ctx.register(ResourceKey.create(CreateRegistries.POTATO_PROJECTILE_TYPE, ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, name)), type);
     }
 }

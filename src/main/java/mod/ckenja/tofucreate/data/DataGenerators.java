@@ -1,6 +1,5 @@
 package mod.ckenja.tofucreate.data;
 
-import com.simibubi.create.infrastructure.data.GeneratedEntriesProvider;
 import mod.ckenja.tofucreate.TofuCreate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -20,7 +19,7 @@ public class DataGenerators {
         PackOutput packOutput = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-        GeneratedEntriesProvider generatedEntriesProvider = new GeneratedEntriesProvider(packOutput, lookupProvider);
+        ModGeneratedEntriesProvider generatedEntriesProvider = new ModGeneratedEntriesProvider(packOutput, lookupProvider);
         lookupProvider = generatedEntriesProvider.getRegistryProvider();
         generator.addProvider(event.includeServer(), generatedEntriesProvider);
 
