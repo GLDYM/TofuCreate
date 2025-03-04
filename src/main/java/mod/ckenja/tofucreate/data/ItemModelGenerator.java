@@ -1,7 +1,7 @@
 package mod.ckenja.tofucreate.data;
 
 import mod.ckenja.tofucreate.TofuCreate;
-import mod.ckenja.tofucreate.register.AllItems;
+import mod.ckenja.tofucreate.register.ModAllItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
@@ -19,11 +19,11 @@ public class ItemModelGenerator extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        singleTex(AllItems.TOFU_METAL_PLATE);
-        singleTex(AllItems.INCOMPLETE_TF_COMPACT_CIRCUIT);
-        singleTex(AllItems.TF_COMPACT_CIRCUIT);
-        singleTex(AllItems.TOFU_PRECISION_MECHANISM);
-        singleTex(AllItems.INCOMPLETE_TOFU_PRECISION_MECHANISM);
+        singleTex(ModAllItems.TOFU_METAL_PLATE);
+        singleTex(ModAllItems.INCOMPLETE_TF_COMPACT_CIRCUIT);
+        singleTex(ModAllItems.TF_COMPACT_CIRCUIT);
+        singleTex(ModAllItems.TOFU_PRECISION_MECHANISM);
+        singleTex(ModAllItems.INCOMPLETE_TOFU_PRECISION_MECHANISM);
     }
 
     private ItemModelBuilder generated(String name, ResourceLocation... layers) {

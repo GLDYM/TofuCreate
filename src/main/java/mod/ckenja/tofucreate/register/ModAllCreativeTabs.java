@@ -10,21 +10,21 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.stream.Stream;
 
-public class AllCreativeTabs {
+public class ModAllCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TofuCreate.MODID);
 
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TOFU_CREATE = CREATIVE_MODE_TABS.register("tofu_create", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
             .title(Component.translatable("itemGroup." + TofuCreate.MODID))
-            .icon(() -> AllItems.TOFU_METAL_PLATE.get().getDefaultInstance())
+            .icon(() -> ModAllItems.TOFU_METAL_PLATE.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.acceptAll(Stream.of(
-                        AllItems.TOFU_METAL_PLATE,
-                        AllItems.INCOMPLETE_TF_COMPACT_CIRCUIT,
-                        AllItems.TF_COMPACT_CIRCUIT,
-                        AllItems.INCOMPLETE_TOFU_PRECISION_MECHANISM,
-                        AllItems.TOFU_PRECISION_MECHANISM
+                        ModAllItems.TOFU_METAL_PLATE,
+                        ModAllItems.INCOMPLETE_TF_COMPACT_CIRCUIT,
+                        ModAllItems.TF_COMPACT_CIRCUIT,
+                        ModAllItems.INCOMPLETE_TOFU_PRECISION_MECHANISM,
+                        ModAllItems.TOFU_PRECISION_MECHANISM
                 ).map(sup -> {
                     return sup.get().getDefaultInstance();
                 }).toList());

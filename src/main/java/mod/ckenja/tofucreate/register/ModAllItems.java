@@ -5,7 +5,7 @@ import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class AllItems {
+public class ModAllItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(TofuCreate.MODID);
 
     public static final DeferredItem<Item> TOFU_METAL_PLATE = ITEMS.registerItem("tofumetal_plate", (properties) -> new Item((properties)));

@@ -5,7 +5,7 @@ import baguchan.tofucraft.registry.TofuItems;
 import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.foundation.data.recipe.ProcessingRecipeGen;
 import mod.ckenja.tofucreate.TofuCreate;
-import mod.ckenja.tofucreate.register.AllFluids;
+import mod.ckenja.tofucreate.register.ModAllFluids;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -29,25 +29,25 @@ public class ModEmptyingRecipeGen extends ProcessingRecipeGen {
             SOYMILK_SOUL = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_soul"), b -> b
                     .output(TofuFluids.SOYMILK_SOUL.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_SOUL_BOTTLE.get())),
             SOYMILK_APPLE = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_apple"), b -> b
-                    .output(AllFluids.SOYMILK_APPLE.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_APPLE.get())),
+                    .output(ModAllFluids.SOYMILK_APPLE.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_APPLE.get())),
             SOYMILK_COCOA = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_cocoa"), b -> b
-                    .output(AllFluids.SOYMILK_COCOA.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_COCOA.get())),
+                    .output(ModAllFluids.SOYMILK_COCOA.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_COCOA.get())),
             SOYMILK_HONEY = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_honey"), b -> b
-                    .output(AllFluids.SOYMILK_HONEY.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_HONEY.get())),
+                    .output(ModAllFluids.SOYMILK_HONEY.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_HONEY.get())),
             SOYMILK_PUMPKIN = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_pumpkin"), b -> b
-                    .output(AllFluids.SOYMILK_PUMPKIN.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_PUMPKIN.get())),
+                    .output(ModAllFluids.SOYMILK_PUMPKIN.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_PUMPKIN.get())),
             SOYMILK_PUDDING = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_pudding"), b -> b
-                    .output(AllFluids.SOYMILK_PUDDING.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_PUDDING.get())),
+                    .output(ModAllFluids.SOYMILK_PUDDING.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_PUDDING.get())),
             SOYMILK_KINAKO = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_kinako"), b -> b
-                    .output(AllFluids.SOYMILK_KINAKO.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_KINAKO.get())),
+                    .output(ModAllFluids.SOYMILK_KINAKO.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_KINAKO.get())),
             SOYMILK_ANNIN = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_annin"), b -> b
-                    .output(AllFluids.SOYMILK_ANNIN.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_ANNIN.get())),
+                    .output(ModAllFluids.SOYMILK_ANNIN.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_ANNIN.get())),
             SOYMILK_RAMUNE = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_ramune"), b -> b
-                    .output(AllFluids.SOYMILK_RAMUNE.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_RAMUNE.get())),
+                    .output(ModAllFluids.SOYMILK_RAMUNE.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_RAMUNE.get())),
             SOYMILK_SAKURA = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_sakura"), b -> b
-                    .output(AllFluids.SOYMILK_SAKURA.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_SAKURA.get())),
+                    .output(ModAllFluids.SOYMILK_SAKURA.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_SAKURA.get())),
             SOYMILK_TEA = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soymilk_tea"), b -> b
-                    .output(AllFluids.SOYMILK_TEA.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_TEA.get()));
+                    .output(ModAllFluids.SOYMILK_TEA.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_TEA.get()));
 
 
 
