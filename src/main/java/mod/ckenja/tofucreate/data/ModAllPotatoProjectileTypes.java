@@ -44,7 +44,7 @@ public class ModAllPotatoProjectileTypes {
                 .knockback(0.25f)
                 .soundPitch(1.2f)
                 .renderTumbling()
-                .preEntityHit(new AllPotatoProjectileEntityHitActions.SetOnFire(3))
+                .preEntityHit(new AllPotatoProjectileEntityHitActions.SetOnFire(40))
                 .onBlockHit(new AllPotatoProjectileBlockHitActions.PlantCrop(TofuBlocks.SOYBEAN_NETHER))
                 .addItems(TofuItems.SEEDS_SOYBEANS_NETHER.get())
                 .build());
