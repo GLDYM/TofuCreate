@@ -7,7 +7,7 @@
   },
   "pre_entity_hit": {
     "type": "create:set_on_fire",
-    "ticks": 3
+    "ticks": 40
   },
   "reload_ticks": 3,
   "render_mode": {
