@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "tofucraft:kyoninso"
+    },
+    {
+      "item": "tofucraft:kyoninso"
+    },
+    {
+      "amount": 1000,
+      "fluid": "tofucraft:soymilk",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "fluid": "tofucreate:soymilk_annin"
+    }
+  ]
+}

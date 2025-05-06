@@ -1,16 +1,17 @@
 package mod.ckenja.tofucreate;
 
+import baguchan.tofucraft.registry.TofuBlocks;
 import com.mojang.logging.LogUtils;
-import com.simibubi.create.Create;
+import com.simibubi.create.api.behaviour.spouting.BlockSpoutingBehaviour;
 import com.simibubi.create.api.event.BlockEntityBehaviourEvent;
 import com.simibubi.create.content.kinetics.press.MechanicalPressBlockEntity;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import mod.ckenja.tofucreate.create.BlockPressBehaviour;
 import mod.ckenja.tofucreate.create.SpoutTofu;
-import mod.ckenja.tofucreate.register.AllBlocks;
-import mod.ckenja.tofucreate.register.AllCreativeTabs;
-import mod.ckenja.tofucreate.register.AllFluids;
-import mod.ckenja.tofucreate.register.AllItems;
+import mod.ckenja.tofucreate.register.ModAllBlocks;
+import mod.ckenja.tofucreate.register.ModAllCreativeTabs;
+import mod.ckenja.tofucreate.register.ModAllFluids;
+import mod.ckenja.tofucreate.register.ModAllItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,8 +24,6 @@ import org.slf4j.Logger;
 
 import java.util.Locale;
 
-import static com.simibubi.create.api.behaviour.BlockSpoutingBehaviour.addCustomSpoutInteraction;
-
 @Mod(BuildConfig.MODID)
 public class TofuCreate {
     public static final Logger LOGGER = LogUtils.getLogger();
@@ -34,17 +33,16 @@ public class TofuCreate {
     public static final String MODID = "tofucreate";
 
     public TofuCreate(){
-        addCustomSpoutInteraction(Create.asResource(MODID), new SpoutTofu());
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::enqueueIMC);
         modEventBus.addListener(this::processIMC);
         forgeEventBus.addGenericListener(MechanicalPressBlockEntity.class, (BlockEntityBehaviourEvent<MechanicalPressBlockEntity> event) -> event
                 .attach(new BlockPressBehaviour(event.getBlockEntity())));
         registrate.registerEventListeners(modEventBus);
-        AllFluids.register();
-        AllBlocks.register(modEventBus);
-        AllItems.ITEMS.register(modEventBus);
-        AllCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+        ModAllFluids.register();
+        ModAllBlocks.register(modEventBus);
+        ModAllItems.ITEMS.register(modEventBus);
+        ModAllCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         //AllMovementBehaviours.registerBehaviour(AllBlocks.MECHANICAL_PRESS.get(), new BlockPressMovementBehavior());
         //AllMovementBehaviours.registerBehaviour(AllBlocks.SPOUT.get(), new BlockSpoutMovementBehavior());
         //AllRecipeTypes.register(modEventBus);
@@ -54,6 +52,8 @@ public class TofuCreate {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        BlockSpoutingBehaviour.BY_BLOCK.register(TofuBlocks.SOYMILK.get(), new SpoutTofu());
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

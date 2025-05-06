@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "amount": 250,
+      "fluid": "tofucreate:soymilk_cocoa",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "tofucraft:soymilk_cocoa"
+    }
+  ]
+}

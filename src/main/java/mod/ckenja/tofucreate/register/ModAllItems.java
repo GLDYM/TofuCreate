@@ -6,7 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class AllItems {
+public class ModAllItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TofuCreate.MODID);
 
     public static final RegistryObject<Item> TOFU_METAL_PLATE = ITEMS.register("tofumetal_plate", () -> new Item((new Item.Properties())));
