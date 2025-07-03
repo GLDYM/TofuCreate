@@ -1,7 +1,5 @@
 package mod.ckenja.tofucreate.client.visual;
 
-import com.simibubi.create.AllBlocks;
-import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 import com.simibubi.create.content.kinetics.base.RotatingInstance;
 import com.simibubi.create.content.kinetics.base.SingleAxisRotatingVisual;
@@ -15,6 +13,7 @@ import dev.engine_room.flywheel.api.visual.BlockEntityVisual;
 import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import dev.engine_room.flywheel.lib.model.Models;
 import mod.ckenja.tofucreate.client.ModAllPartialModels;
+import mod.ckenja.tofucreate.register.ModAllBlocks;
 import net.minecraft.core.Direction;
 
 import java.util.function.Consumer;
@@ -25,7 +24,7 @@ public class TofuBracketedKineticBlockEntityVisual {
             return new TofuBracketedKineticBlockEntityVisual.LargeCogVisual(context, blockEntity, partialTick);
         } else {
             Model model;
-            if (AllBlocks.COGWHEEL.is(blockEntity.getBlockState().getBlock())) {
+            if (ModAllBlocks.TOFU_COGWHEEL.is(blockEntity.getBlockState().getBlock())) {
                 model = Models.partial(ModAllPartialModels.COGWHEEL);
             } else {
                 model = Models.partial(ModAllPartialModels.SHAFT);
@@ -39,11 +38,11 @@ public class TofuBracketedKineticBlockEntityVisual {
         protected final RotatingInstance additionalShaft;
 
         private LargeCogVisual(VisualizationContext context, BracketedKineticBlockEntity blockEntity, float partialTick) {
-            super(context, blockEntity, partialTick, Models.partial(AllPartialModels.SHAFTLESS_LARGE_COGWHEEL));
+            super(context, blockEntity, partialTick, Models.partial(ModAllPartialModels.SHAFTLESS_LARGE_COGWHEEL));
 
             Direction.Axis axis = KineticBlockEntityRenderer.getRotationAxisOf(blockEntity);
 
-            additionalShaft = instancerProvider().instancer(AllInstanceTypes.ROTATING, Models.partial(AllPartialModels.COGWHEEL_SHAFT))
+            additionalShaft = instancerProvider().instancer(AllInstanceTypes.ROTATING, Models.partial(ModAllPartialModels.COGWHEEL_SHAFT))
                     .createInstance();
 
             additionalShaft.rotateToFace(axis)

@@ -6,7 +6,7 @@
     32
   ],
   "textures": {
-    "4": "create:block/large_cogwheel",
-    "particle": "block/stripped_spruce_log"
+    "4": "tofucreate:block/tofu_large_cogwheel",
+    "particle": "tofucraft:block/leek_stem"
   }
 }

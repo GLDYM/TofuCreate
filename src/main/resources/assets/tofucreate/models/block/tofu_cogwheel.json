@@ -6,9 +6,9 @@
     32
   ],
   "textures": {
-    "0": "create:block/cogwheel_axis",
+    "0": "tofucreate:block/tofu_cogwheel_axis",
     "3": "tofucreate:block/tofu_axis_top",
-    "1_2": "create:block/cogwheel",
+    "1_2": "tofucreate:block/tofu_cogwheel",
     "particle": "block/stripped_spruce_log_top"
   }
 }

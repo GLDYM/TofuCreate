@@ -3,7 +3,7 @@
   "parent": "create:block/cogwheel_shaft",
   "textures": {
     "0": "tofucreate:block/tofu_axis_top",
-    "1": "create:block/cogwheel_axis",
-    "particle": "create:block/axis_top"
+    "1": "tofucreate:block/tofu_cogwheel_axis",
+    "particle": "tofucreate:block/tofu_axis_top"
   }
 }
