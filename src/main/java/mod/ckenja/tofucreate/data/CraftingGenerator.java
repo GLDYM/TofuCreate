@@ -7,17 +7,23 @@ import com.simibubi.create.content.kinetics.press.PressingRecipe;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyRecipeBuilder;
 import com.simibubi.create.foundation.data.recipe.CreateRecipeProvider;
 import mod.ckenja.tofucreate.TofuCreate;
+import mod.ckenja.tofucreate.register.ModAllBlocks;
 import mod.ckenja.tofucreate.register.ModAllItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.UnaryOperator;
 
-public class ModSequencedAssemblyRecipeGen extends CreateRecipeProvider {
+public class CraftingGenerator extends CreateRecipeProvider {
 
-    GeneratedRecipe
+    CreateRecipeProvider.GeneratedRecipe
 
             PRECISION_MECHANISM = create("tofu_precision_mechanism", b -> b.require(ModAllItems.TOFU_METAL_PLATE.get())
             .transitionTo(ModAllItems.INCOMPLETE_TOFU_PRECISION_MECHANISM.get())
@@ -29,7 +35,7 @@ public class ModSequencedAssemblyRecipeGen extends CreateRecipeProvider {
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(Items.REDSTONE))
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModAllItems.TF_COMPACT_CIRCUIT.get())));
 
-    GeneratedRecipe
+    CreateRecipeProvider.GeneratedRecipe
 
             TF_COMPACT_CIRCUIT = create("tf_compact_circuit", b -> b.require(TofuItems.TOFUISHI.get())
             .transitionTo(ModAllItems.INCOMPLETE_TF_COMPACT_CIRCUIT.get())
@@ -42,8 +48,33 @@ public class ModSequencedAssemblyRecipeGen extends CreateRecipeProvider {
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE)));
 
 
-    public ModSequencedAssemblyRecipeGen(PackOutput p_i48262_1_, CompletableFuture<HolderLookup.Provider> registries) {
-        super(p_i48262_1_, registries);
+    public CraftingGenerator(PackOutput p_248933_, CompletableFuture<HolderLookup.Provider> p_323846_) {
+        super(p_248933_, p_323846_);
+    }
+
+
+    @Override
+    protected void buildRecipes(RecipeOutput consumer) {
+        super.buildRecipes(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModAllBlocks.TOFU_METAL_SHAFT.get(), 4)
+                .pattern("M")
+                .pattern("M")
+                .define('M', TofuItems.TOFUMETAL.get())
+                .unlockedBy("has_item", has(TofuItems.TOFUMETAL.get()));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, ModAllBlocks.TOFU_COGWHEEL.get(), 1)
+                .requires(ModAllBlocks.TOFU_METAL_SHAFT.get())
+                .requires(ItemTags.PLANKS)
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_METAL_SHAFT.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModAllBlocks.TOFU_LARGE_COGWHEEL, 1)
+                .pattern("SSS")
+                .pattern("SMS")
+                .pattern("SSS")
+                .define('M', ModAllBlocks.TOFU_COGWHEEL.get())
+                .define('S', ItemTags.WOODEN_SLABS)
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_COGWHEEL.get()));
+
     }
 
     protected GeneratedRecipe create(String name, UnaryOperator<SequencedAssemblyRecipeBuilder> transform) {

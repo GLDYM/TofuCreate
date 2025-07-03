@@ -30,10 +30,10 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ItemTagGenerator(packOutput, lookupProvider, blocktags.contentsGetter(), existingFileHelper));
 
         generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput, lookupProvider));
+        event.getGenerator().addProvider(event.includeServer(), new CraftingGenerator(packOutput, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(), new ModEmptyingRecipeGen(packOutput, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(), new ModFillingRecipeGen(packOutput, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(), new ModMixingRecipeGen(packOutput, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(), new ModPressingRecipeGen(packOutput, lookupProvider));
-        event.getGenerator().addProvider(event.includeServer(), new ModSequencedAssemblyRecipeGen(packOutput, lookupProvider));
     }
 }
