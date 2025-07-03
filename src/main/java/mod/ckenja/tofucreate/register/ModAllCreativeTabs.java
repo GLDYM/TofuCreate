@@ -28,6 +28,5 @@ public class ModAllCreativeTabs {
                 ).map(sup -> {
                     return sup.get().getDefaultInstance();
                 }).toList());
-
             }).build());
 }

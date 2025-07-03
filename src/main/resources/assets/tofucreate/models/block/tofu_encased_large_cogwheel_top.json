@@ -1,0 +1,11 @@
+{
+  "parent": "create:block/encased_large_cogwheel/block_top",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "1": "tofucraft:block/leek_stem_top",
+    "4": "tofucreate:block/tofu_gearbox",
+    "casing": "tofucreate:block/tofu_metal_casing",
+    "particle": "tofucreate:block/tofu_metal_casing",
+    "side": "tofucreate:block/tofu_encased_cogwheel_side_connected"
+  }
+}

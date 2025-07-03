@@ -35,6 +35,11 @@ public class BlockLootTables extends BlockLootSubProvider {
         dropSelf(ModAllBlocks.TOFU_METAL_SHAFT.get());
         dropSelf(ModAllBlocks.TOFU_COGWHEEL.get());
         dropSelf(ModAllBlocks.TOFU_LARGE_COGWHEEL.get());
+        dropSelf(ModAllBlocks.TOFU_METAL_SHAFT.get());
+        dropSelf(ModAllBlocks.TOFU_GEARBOX.get());
+        dropOther(ModAllBlocks.TOFU_ENCASED_SHAFT.get(), ModAllBlocks.TOFU_METAL_SHAFT.get());
+        dropOther(ModAllBlocks.TOFU_ENCASED_COGWHEEL.get(), ModAllBlocks.TOFU_COGWHEEL.get());
+        dropOther(ModAllBlocks.TOFU_ENCASED_LARGE_COGWHEEL.get(), ModAllBlocks.TOFU_LARGE_COGWHEEL.get());
     }
 
 

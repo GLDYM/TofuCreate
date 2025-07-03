@@ -1,0 +1,18 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "c:stripped_logs"
+    },
+    {
+      "item": "tofucraft:tofumetal"
+    }
+  ],
+  "results": [
+    {
+      "item": {
+        "id": "tofucreate:tofu_metal_casing"
+      }
+    }
+  ]
+}

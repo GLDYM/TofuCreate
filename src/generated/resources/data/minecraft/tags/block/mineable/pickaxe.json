@@ -1,7 +1,12 @@
 {
   "values": [
     "tofucreate:tofu_metal_shaft",
+    "tofucreate:tofu_metal_casing",
+    "tofucreate:tofu_gearbox",
     "tofucreate:tofu_cogwheel",
-    "tofucreate:tofu_large_cogwheel"
+    "tofucreate:tofu_large_cogwheel",
+    "tofucreate:tofu_encased_shaft",
+    "tofucreate:tofu_encased_cogwheel",
+    "tofucreate:tofu_encased_large_cogwheel"
   ]
 }

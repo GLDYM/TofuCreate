@@ -1,10 +1,19 @@
 package mod.ckenja.tofucreate.register;
 
+import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
+import com.simibubi.create.content.kinetics.base.ShaftRenderer;
+import com.simibubi.create.content.kinetics.gearbox.GearboxBlockEntity;
+import com.simibubi.create.content.kinetics.gearbox.GearboxRenderer;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEntity;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEntityRenderer;
+import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntity;
+import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogRenderer;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import mod.ckenja.tofucreate.TofuCreate;
 import mod.ckenja.tofucreate.client.visual.TofuBracketedKineticBlockEntityVisual;
+import mod.ckenja.tofucreate.client.visual.TofuEncasedCogVisual;
+import mod.ckenja.tofucreate.client.visual.TofuGearboxVisual;
+import mod.ckenja.tofucreate.client.visual.TofuSingleAxisRotatingVisual;
 
 public class ModAllBlockEntityTypes {
 
@@ -15,6 +24,32 @@ public class ModAllBlockEntityTypes {
             .validBlocks(ModAllBlocks.TOFU_METAL_SHAFT, ModAllBlocks.TOFU_COGWHEEL, ModAllBlocks.TOFU_LARGE_COGWHEEL)
             .renderer(() -> BracketedKineticBlockEntityRenderer::new)
             .register();
+    public static final BlockEntityEntry<GearboxBlockEntity> GEARBOX = TofuCreate.registrate
+            .blockEntity("gearbox", GearboxBlockEntity::new)
+            .visual(() -> TofuGearboxVisual::new, false)
+            .validBlocks(ModAllBlocks.TOFU_GEARBOX)
+            .renderer(() -> GearboxRenderer::new)
+            .register();
+    public static final BlockEntityEntry<KineticBlockEntity> ENCASED_SHAFT = TofuCreate.registrate
+            .blockEntity("encased_shaft", KineticBlockEntity::new)
+            .visual(() -> TofuSingleAxisRotatingVisual::shaft, false)
+            .validBlocks(ModAllBlocks.TOFU_ENCASED_SHAFT)
+            .renderer(() -> ShaftRenderer::new)
+            .register();
+    public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_COGWHEEL = TofuCreate.registrate
+            .blockEntity("encased_cogwheel", SimpleKineticBlockEntity::new)
+            .visual(() -> TofuEncasedCogVisual::small, false)
+            .validBlocks(ModAllBlocks.TOFU_ENCASED_COGWHEEL)
+            .renderer(() -> EncasedCogRenderer::small)
+            .register();
+
+    public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_LARGE_COGWHEEL = TofuCreate.registrate
+            .blockEntity("encased_large_cogwheel", SimpleKineticBlockEntity::new)
+            .visual(() -> TofuEncasedCogVisual::large, false)
+            .validBlocks(ModAllBlocks.TOFU_ENCASED_LARGE_COGWHEEL)
+            .renderer(() -> EncasedCogRenderer::large)
+            .register();
+
 
     public static void register() {
     }

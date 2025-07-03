@@ -10,7 +10,7 @@ public class TofuCreateClient {
 
     @SubscribeEvent
     public static void clientInit(final FMLClientSetupEvent event) {
-
+        ModAllSpriteShifts.init();
         ModAllPartialModels.init();
     }
 }

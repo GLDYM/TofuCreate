@@ -6,6 +6,7 @@ import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.api.behaviour.spouting.BlockSpoutingBehaviour;
 import com.simibubi.create.api.event.BlockEntityBehaviourEvent;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import mod.ckenja.tofucreate.config.TCConfigs;
 import mod.ckenja.tofucreate.create.BlockPressBehaviour;
 import mod.ckenja.tofucreate.create.SpoutTofu;
 import mod.ckenja.tofucreate.register.*;
@@ -38,6 +39,7 @@ public class TofuCreate {
         ModAllBlocks.register();
         ModAllItems.ITEMS.register(modBus);
         ModAllBlockEntityTypes.register();
+        TCConfigs.register(modContainer);
         //AllMovementBehaviours.registerBehaviour(AllBlocks.MECHANICAL_PRESS.get(), new BlockPressMovementBehavior());
         //AllMovementBehaviours.registerBehaviour(AllBlocks.SPOUT.get(), new BlockSpoutMovementBehavior());
         //AllRecipeTypes.register(modEventBus);

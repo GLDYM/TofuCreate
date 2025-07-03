@@ -1,0 +1,11 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "create:block/gearbox/item",
+  "textures": {
+    "0": "tofucreate:block/tofu_metal_casing",
+    "1": "tofucreate:block/tofu_gearbox",
+    "particle": "tofucreate:block/tofu_axis",
+    "1_0": "tofucreate:block/tofu_axis",
+    "1_1": "tofucreate:block/tofu_axis_top"
+  }
+}

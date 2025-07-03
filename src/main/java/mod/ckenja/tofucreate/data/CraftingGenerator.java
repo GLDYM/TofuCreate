@@ -74,7 +74,13 @@ public class CraftingGenerator extends CreateRecipeProvider {
                 .define('M', ModAllBlocks.TOFU_COGWHEEL.get())
                 .define('S', ItemTags.WOODEN_SLABS)
                 .unlockedBy("has_item", has(ModAllBlocks.TOFU_COGWHEEL.get()));
-
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModAllBlocks.TOFU_GEARBOX, 1)
+                .pattern(" C ")
+                .pattern("CMC")
+                .pattern(" C ")
+                .define('M', ModAllBlocks.TOFU_METAL_CASING.get())
+                .define('C', ModAllBlocks.TOFU_COGWHEEL)
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_METAL_CASING.get()));
     }
 
     protected GeneratedRecipe create(String name, UnaryOperator<SequencedAssemblyRecipeBuilder> transform) {

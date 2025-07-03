@@ -1,6 +1,8 @@
 package mod.ckenja.tofucreate.data;
 
+import com.simibubi.create.AllTags;
 import mod.ckenja.tofucreate.TofuCreate;
+import mod.ckenja.tofucreate.register.ModAllItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -18,6 +20,6 @@ public class ItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-
+        this.tag(AllTags.AllItemTags.PLATES.tag).add(ModAllItems.TOFU_METAL_PLATE.asItem());
     }
 }

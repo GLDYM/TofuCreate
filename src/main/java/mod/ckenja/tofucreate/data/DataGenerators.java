@@ -31,6 +31,7 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(), new CraftingGenerator(packOutput, lookupProvider));
+        event.getGenerator().addProvider(event.includeServer(), new ModItemApplicationRecipeGen(packOutput, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(), new ModEmptyingRecipeGen(packOutput, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(), new ModFillingRecipeGen(packOutput, lookupProvider));
         event.getGenerator().addProvider(event.includeServer(), new ModMixingRecipeGen(packOutput, lookupProvider));
