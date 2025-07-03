@@ -1,0 +1,9 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "create:block/cogwheel_shaft",
+  "textures": {
+    "0": "tofucreate:block/tofu_axis_top",
+    "1": "create:block/cogwheel_axis",
+    "particle": "create:block/axis_top"
+  }
+}

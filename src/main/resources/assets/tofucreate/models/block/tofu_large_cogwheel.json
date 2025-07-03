@@ -1,0 +1,14 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "create:block/large_cogwheel_shaftless",
+  "texture_size": [
+    32,
+    32
+  ],
+  "textures": {
+    "0": "create:block/cogwheel_axis",
+    "3": "tofucreate:block/tofu_axis_top",
+    "4": "create:block/large_cogwheel",
+    "particle": "block/stripped_spruce_log"
+  }
+}

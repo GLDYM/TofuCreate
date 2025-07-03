@@ -1,0 +1,11 @@
+{
+  "parent": "create:block/cogwheel_shaftless",
+  "texture_size": [
+    32,
+    32
+  ],
+  "textures": {
+    "1_2": "create:block/cogwheel",
+    "particle": "block/stripped_spruce_log_top"
+  }
+}

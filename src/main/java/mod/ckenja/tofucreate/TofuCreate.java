@@ -8,10 +8,7 @@ import com.simibubi.create.api.event.BlockEntityBehaviourEvent;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import mod.ckenja.tofucreate.create.BlockPressBehaviour;
 import mod.ckenja.tofucreate.create.SpoutTofu;
-import mod.ckenja.tofucreate.register.ModAllBlocks;
-import mod.ckenja.tofucreate.register.ModAllCreativeTabs;
-import mod.ckenja.tofucreate.register.ModAllFluids;
-import mod.ckenja.tofucreate.register.ModAllItems;
+import mod.ckenja.tofucreate.register.*;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -31,12 +28,16 @@ public class TofuCreate {
 
     public TofuCreate(ModContainer modContainer, IEventBus modBus) {
         modBus.addListener(this::setup);
+
+        ModAllCreativeTabs.CREATIVE_MODE_TABS.register(modBus);
         NeoForge.EVENT_BUS.addListener(this::setupBehavior);
         registrate.registerEventListeners(modBus);
+        registrate.defaultCreativeTab(ModAllCreativeTabs.TOFU_CREATE, "tofu_create");
+
         ModAllFluids.register();
-        ModAllBlocks.register(modBus);
+        ModAllBlocks.register();
         ModAllItems.ITEMS.register(modBus);
-        ModAllCreativeTabs.CREATIVE_MODE_TABS.register(modBus);
+        ModAllBlockEntityTypes.register();
         //AllMovementBehaviours.registerBehaviour(AllBlocks.MECHANICAL_PRESS.get(), new BlockPressMovementBehavior());
         //AllMovementBehaviours.registerBehaviour(AllBlocks.SPOUT.get(), new BlockSpoutMovementBehavior());
         //AllRecipeTypes.register(modEventBus);

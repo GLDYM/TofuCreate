@@ -1,0 +1,9 @@
+{
+  "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+  "parent": "create:block/shaft",
+  "textures": {
+    "particle": "create:block/axis",
+    "0": "tofucreate:block/tofu_axis",
+    "1": "tofucreate:block/tofu_axis_top"
+  }
+}

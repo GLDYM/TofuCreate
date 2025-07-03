@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tofucreate:block/tofu_cogwheel",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "tofucreate:block/tofu_cogwheel"
+    },
+    "axis=z": {
+      "model": "tofucreate:block/tofu_cogwheel",
+      "x": 90,
+      "y": 180
+    }
+  }
+}
