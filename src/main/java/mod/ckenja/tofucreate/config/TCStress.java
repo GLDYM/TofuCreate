@@ -1,6 +1,5 @@
 package mod.ckenja.tofucreate.config;
 
-import com.simibubi.create.Create;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
@@ -68,7 +67,7 @@ public class TCStress extends ConfigBase {
     public static <B extends Block, P> NonNullUnaryOperator<BlockBuilder<B, P>> setImpact(double value) {
         return builder -> {
             assertFromCreateCasing(builder);
-            ResourceLocation id = Create.asResource(builder.getName());
+            ResourceLocation id = TofuCreate.prefix(builder.getName());
             DEFAULT_IMPACTS.put(id, value);
             return builder;
         };

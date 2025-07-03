@@ -68,4 +68,12 @@ public class TCConfigs {
                 config.onReload();
     }
 
+    @SubscribeEvent
+    public static void onSave(ModConfigEvent event) {
+        for (ConfigBase config : CONFIGS.values())
+            if (config.specification == event.getConfig()
+                    .getSpec())
+                config.onReload();
+    }
+
 }
