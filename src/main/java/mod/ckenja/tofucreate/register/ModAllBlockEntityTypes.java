@@ -1,7 +1,11 @@
 package mod.ckenja.tofucreate.register;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.kinetics.base.ShaftRenderer;
+import com.simibubi.create.content.kinetics.belt.BeltBlockEntity;
+import com.simibubi.create.content.kinetics.belt.BeltRenderer;
+import com.simibubi.create.content.kinetics.belt.BeltVisual;
 import com.simibubi.create.content.kinetics.gearbox.GearboxBlockEntity;
 import com.simibubi.create.content.kinetics.gearbox.GearboxRenderer;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEntity;
@@ -11,8 +15,12 @@ import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogRende
 import com.simibubi.create.content.kinetics.waterwheel.WaterWheelBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import mod.ckenja.tofucreate.TofuCreate;
+import mod.ckenja.tofucreate.blockentity.YubaBeltBlockEntity;
 import mod.ckenja.tofucreate.client.render.TofuWaterWheelRenderer;
+import mod.ckenja.tofucreate.client.render.YubaBeltRenderer;
 import mod.ckenja.tofucreate.client.visual.*;
+
+import static com.simibubi.create.Create.REGISTRATE;
 
 public class ModAllBlockEntityTypes {
 
@@ -55,6 +63,13 @@ public class ModAllBlockEntityTypes {
             .validBlocks(ModAllBlocks.TOFU_WATER_WHEEL)
             .renderer(() -> TofuWaterWheelRenderer::standard)
             .register();
+    public static final BlockEntityEntry<YubaBeltBlockEntity> BELT = TofuCreate.registrate
+            .blockEntity("belt", YubaBeltBlockEntity::new)
+            .visual(() -> YubaBeltVisual::new, YubaBeltBlockEntity::shouldRenderNormally)
+            .validBlocks(ModAllBlocks.YUBA)
+            .renderer(() -> YubaBeltRenderer::new)
+            .register();
+
 
     public static void register() {
     }

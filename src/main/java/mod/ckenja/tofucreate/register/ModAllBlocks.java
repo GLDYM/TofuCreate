@@ -1,11 +1,15 @@
 package mod.ckenja.tofucreate.register;
 
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllDisplaySources;
 import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.content.decoration.encasing.EncasedCTBehaviour;
 import com.simibubi.create.content.decoration.encasing.EncasingRegistry;
 import com.simibubi.create.content.kinetics.base.RotatedPillarKineticBlock;
+import com.simibubi.create.content.kinetics.belt.BeltBlock;
+import com.simibubi.create.content.kinetics.belt.BeltGenerator;
+import com.simibubi.create.content.kinetics.belt.BeltModel;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogCTBehaviour;
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedShaftBlock;
@@ -17,6 +21,7 @@ import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import mod.ckenja.tofucreate.TofuCreate;
 import mod.ckenja.tofucreate.block.*;
 import mod.ckenja.tofucreate.client.ModAllSpriteShifts;
+import mod.ckenja.tofucreate.client.YubaBeltGenerator;
 import mod.ckenja.tofucreate.config.TCStress;
 import net.createmod.catnip.data.Couple;
 import net.minecraft.client.renderer.RenderType;
@@ -27,6 +32,7 @@ import net.minecraft.world.level.material.MapColor;
 
 import java.util.function.Supplier;
 
+import static com.simibubi.create.api.behaviour.display.DisplaySource.displaySource;
 import static com.simibubi.create.foundation.data.BlockStateGen.axisBlock;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
@@ -126,6 +132,18 @@ public class ModAllBlocks {
             .onRegister(BlockStressValues.setGeneratorSpeed(8))
             .item()
             .transform(customItemModel())
+            .register();
+    public static final BlockEntry<YubaBeltBlock> YUBA = TofuCreate.registrate.block("yuba", YubaBeltBlock::new)
+            .properties(p -> p.sound(SoundType.WOOL)
+                    .strength(0.8f)
+                    .mapColor(MapColor.TERRACOTTA_WHITE))
+            .addLayer(() -> RenderType::cutoutMipped)
+            .transform(axeOrPickaxe())
+            .blockstate(new YubaBeltGenerator()::generate)
+            .transform(TCStress.setNoImpact())
+            .transform(displaySource(AllDisplaySources.ITEM_NAMES))
+            .onRegister(CreateRegistrate.blockModel(() -> BeltModel::new))
+            .clientExtension(() -> () -> new BeltBlock.RenderProperties())
             .register();
 
 

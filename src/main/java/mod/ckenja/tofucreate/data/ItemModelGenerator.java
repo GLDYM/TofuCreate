@@ -1,7 +1,9 @@
 package mod.ckenja.tofucreate.data;
 
+import com.tterrag.registrate.util.entry.ItemEntry;
 import mod.ckenja.tofucreate.TofuCreate;
 import mod.ckenja.tofucreate.register.ModAllItems;
+import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
@@ -24,6 +26,7 @@ public class ItemModelGenerator extends ItemModelProvider {
         singleTex(ModAllItems.TF_COMPACT_CIRCUIT);
         singleTex(ModAllItems.TOFU_PRECISION_MECHANISM);
         singleTex(ModAllItems.INCOMPLETE_TOFU_PRECISION_MECHANISM);
+        singleTex(ModAllItems.YUBA_CONNECTOR);
     }
 
     private ItemModelBuilder generated(String name, ResourceLocation... layers) {
@@ -41,6 +44,10 @@ public class ItemModelGenerator extends ItemModelProvider {
     }
 
     private ItemModelBuilder singleTex(DeferredItem<?> item) {
+        return generated(item.getId().getPath(), prefix("item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder singleTex(ItemEntry<?> item) {
         return generated(item.getId().getPath(), prefix("item/" + item.getId().getPath()));
     }
 }

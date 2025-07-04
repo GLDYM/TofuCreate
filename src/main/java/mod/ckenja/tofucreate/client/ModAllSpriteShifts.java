@@ -14,6 +14,11 @@ public class ModAllSpriteShifts {
     public static final CTSpriteShiftEntry
             TOFU_ENCASED_COGWHEEL_SIDE = vertical("tofu_encased_cogwheel_side"),
             TOFU_ENCASED_COGWHEEL_OTHERSIDE = horizontal("tofu_encased_cogwheel_side");
+    public static final SpriteShiftEntry BELT = get("block/yuba", "block/yuba_scroll"),
+            BELT_OFFSET = get("block/yuba_offset", "block/yuba_scroll"),
+            BELT_DIAGONAL = get("block/yuba_diagonal", "block/yuba_diagonal_scroll"),
+            ANDESIDE_BELT_CASING = get("block/yuba/brass_yuba_casing", "block/yuba/andesite_yuba_casing"),
+            CRAFTER_THINGIES = get("block/crafter_thingies", "block/crafter_thingies");
 
 
     private static CTSpriteShiftEntry omni(String name) {

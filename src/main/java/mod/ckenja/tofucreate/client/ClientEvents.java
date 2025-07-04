@@ -6,13 +6,12 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 
-@EventBusSubscriber(modid = TofuCreate.MODID, bus = EventBusSubscriber.Bus.MOD)
-public class TofuCreateClient {
+@EventBusSubscriber(modid = TofuCreate.MODID)
+public class ClientEvents {
 
     @SubscribeEvent
-    public static void clientInit(final FMLClientSetupEvent event) {
-        ModAllSpriteShifts.init();
-        ModAllPartialModels.init();
+    public static void onTickPost(ClientTickEvent.Post event) {
+        YubaBeltConnectorHandler.tick();
     }
 
 }

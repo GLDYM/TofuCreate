@@ -1,12 +1,17 @@
 package mod.ckenja.tofucreate.register;
 
+import com.simibubi.create.AllItems;
+import com.simibubi.create.content.kinetics.belt.item.BeltConnectorItem;
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import mod.ckenja.tofucreate.TofuCreate;
 import mod.ckenja.tofucreate.item.TofuVerticalGearboxItem;
+import mod.ckenja.tofucreate.item.YubaConnectorItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import static com.simibubi.create.Create.REGISTRATE;
 
 public class ModAllItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(TofuCreate.MODID);
@@ -19,6 +24,9 @@ public class ModAllItems {
     public static final ItemEntry<TofuVerticalGearboxItem> TOFU_VERTICAL_GEARBOX =
             TofuCreate.registrate.item("tofu_vertical_gearbox", TofuVerticalGearboxItem::new)
                     .model(AssetLookup.customBlockItemModel("tofu_gearbox", "item_vertical"))
+                    .register();
+    public static final ItemEntry<YubaConnectorItem> YUBA_CONNECTOR =
+            TofuCreate.registrate.item("yuba_connector", YubaConnectorItem::new)
                     .register();
 }
 

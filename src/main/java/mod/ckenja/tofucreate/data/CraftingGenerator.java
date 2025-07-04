@@ -31,10 +31,10 @@ public class CraftingGenerator extends CreateRecipeProvider {
             .transitionTo(ModAllItems.INCOMPLETE_TOFU_PRECISION_MECHANISM.get())
             .addOutput(ModAllItems.TOFU_PRECISION_MECHANISM.get(), 120)
             .addOutput(ModAllItems.TOFU_METAL_PLATE.get(), 8)
-            .addOutput(Items.REDSTONE, 2)
+            .addOutput(TofuItems.TOFU_GEM_DUST.get(), 2)
             .loops(2)
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(TofuItems.TOFUGEM.get()))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(Items.REDSTONE))
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(TofuItems.TOFU_GEM_DUST.get()))
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(ModAllItems.TF_COMPACT_CIRCUIT.get())));
 
     CreateRecipeProvider.GeneratedRecipe
@@ -43,11 +43,10 @@ public class CraftingGenerator extends CreateRecipeProvider {
             .transitionTo(ModAllItems.INCOMPLETE_TF_COMPACT_CIRCUIT.get())
             .addOutput(ModAllItems.TF_COMPACT_CIRCUIT.get(), 120)
             .addOutput(TofuItems.TOFUISHI.get(), 5)
-            .addOutput(Items.REDSTONE, 5)
-            .loops(1)
+            .addOutput(TofuItems.TOFU_GEM_DUST.get(), 5)
+            .loops(2)
             .addStep(PressingRecipe::new, rb -> rb)
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(Items.REDSTONE))
-            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE)));
+            .addStep(DeployerApplicationRecipe::new, rb -> rb.require(TofuItems.TOFU_GEM_DUST.get())));
 
 
     public CraftingGenerator(PackOutput p_248933_, CompletableFuture<HolderLookup.Provider> p_323846_) {
@@ -117,6 +116,12 @@ public class CraftingGenerator extends CreateRecipeProvider {
                 .define('T', TofuItems.TOFUMETAL.get())
                 .define('P', ItemTags.PLANKS)
                 .unlockedBy("has_item", has(ModAllBlocks.TOFU_METAL_CASING.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModAllItems.YUBA_CONNECTOR, 1)
+                .pattern("YYY")
+                .pattern("YYY")
+                .define('Y', TofuItems.YUBA.get())
+                .unlockedBy("has_item", has(TofuItems.YUBA.get()))
                 .save(consumer);
     }
 
