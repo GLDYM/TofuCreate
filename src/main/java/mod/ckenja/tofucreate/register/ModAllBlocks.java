@@ -1,6 +1,7 @@
 package mod.ckenja.tofucreate.register;
 
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.content.decoration.encasing.EncasedCTBehaviour;
 import com.simibubi.create.content.decoration.encasing.EncasingRegistry;
@@ -18,6 +19,7 @@ import mod.ckenja.tofucreate.block.*;
 import mod.ckenja.tofucreate.client.ModAllSpriteShifts;
 import mod.ckenja.tofucreate.config.TCStress;
 import net.createmod.catnip.data.Couple;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -111,6 +113,21 @@ public class ModAllBlocks {
             .transform(EncasingRegistry.addVariantTo(ModAllBlocks.TOFU_LARGE_COGWHEEL))
             .transform(axeOrPickaxe())
             .register();
+
+    public static final BlockEntry<TofuWaterWheelBlock> TOFU_WATER_WHEEL = TofuCreate.registrate.block("tofu_water_wheel", TofuWaterWheelBlock::new)
+            .initialProperties(SharedProperties::wooden)
+            .properties(p -> p.noOcclusion()
+                    .mapColor(MapColor.DIRT))
+            .transform(axeOrPickaxe())
+            .blockstate(
+                    (c, p) -> BlockStateGen.directionalBlockIgnoresWaterlogged(c, p, s -> AssetLookup.partialBaseModel(c, p)))
+            .addLayer(() -> RenderType::cutoutMipped)
+            .transform(TCStress.setCapacity(32))
+            .onRegister(BlockStressValues.setGeneratorSpeed(8))
+            .item()
+            .transform(customItemModel())
+            .register();
+
 
     public static <B extends EncasedShaftBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> encasedShaft(String casing,
                                                                                                          Supplier<CTSpriteShiftEntry> casingShift) {

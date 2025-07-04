@@ -7,7 +7,9 @@ public class ModAllPartialModels {
     public static final PartialModel SHAFTLESS_COGWHEEL = block("tofu_cogwheel_shaftless"), SHAFTLESS_LARGE_COGWHEEL = block("tofu_large_cogwheel_shaftless"),
             COGWHEEL_SHAFT = block("tofu_cogwheel_shaft"), SHAFT_HALF = block("tofu_metal_shaft_half"),
             SHAFT = block("tofu_metal_shaft"),
-            COGWHEEL = block("tofu_cogwheel");
+            COGWHEEL = block("tofu_cogwheel"),
+            WATER_WHEEL = block("water_wheel/wheel"), LARGE_WATER_WHEEL = block("large_water_wheel/block"),
+            LARGE_WATER_WHEEL_EXTENSION = block("large_water_wheel/block_extension");
 
     private static PartialModel block(String path) {
         return PartialModel.of(TofuCreate.prefix("block/" + path));

@@ -22,12 +22,14 @@ public class BlockTagGenerator extends BlockTagsProvider {
                 .add(ModAllBlocks.TOFU_ENCASED_SHAFT.get())
                 .add(ModAllBlocks.TOFU_ENCASED_COGWHEEL.get())
                 .add(ModAllBlocks.TOFU_ENCASED_LARGE_COGWHEEL.get())
+                .add(ModAllBlocks.TOFU_WATER_WHEEL.get())
         ;
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(ModAllBlocks.TOFU_METAL_CASING.get()).add(ModAllBlocks.TOFU_GEARBOX.get()).add(ModAllBlocks.TOFU_COGWHEEL.get()).add(ModAllBlocks.TOFU_LARGE_COGWHEEL.get())
                 .add(ModAllBlocks.TOFU_ENCASED_SHAFT.get())
                 .add(ModAllBlocks.TOFU_ENCASED_COGWHEEL.get())
-                .add(ModAllBlocks.TOFU_ENCASED_LARGE_COGWHEEL.get());
+                .add(ModAllBlocks.TOFU_ENCASED_LARGE_COGWHEEL.get())
+                .add(ModAllBlocks.TOFU_WATER_WHEEL.get());
 
     }
 }

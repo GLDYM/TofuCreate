@@ -1,0 +1,10 @@
+{
+  "parent": "tofucreate:block/water_wheel/textures",
+  "loader": "neoforge:obj",
+  "flip_v": true,
+  "model": "create:models/block/water_wheel/water_wheel_item.obj",
+  "textures": {
+    "log": "tofucraft:block/leek_stem",
+    "planks": "tofucraft:block/leek_planks"
+  }
+}

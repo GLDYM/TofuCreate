@@ -8,12 +8,11 @@ import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEn
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEntityRenderer;
 import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntity;
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogRenderer;
+import com.simibubi.create.content.kinetics.waterwheel.WaterWheelBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import mod.ckenja.tofucreate.TofuCreate;
-import mod.ckenja.tofucreate.client.visual.TofuBracketedKineticBlockEntityVisual;
-import mod.ckenja.tofucreate.client.visual.TofuEncasedCogVisual;
-import mod.ckenja.tofucreate.client.visual.TofuGearboxVisual;
-import mod.ckenja.tofucreate.client.visual.TofuSingleAxisRotatingVisual;
+import mod.ckenja.tofucreate.client.render.TofuWaterWheelRenderer;
+import mod.ckenja.tofucreate.client.visual.*;
 
 public class ModAllBlockEntityTypes {
 
@@ -50,6 +49,12 @@ public class ModAllBlockEntityTypes {
             .renderer(() -> EncasedCogRenderer::large)
             .register();
 
+    public static final BlockEntityEntry<WaterWheelBlockEntity> WATER_WHEEL = TofuCreate.registrate
+            .blockEntity("water_wheel", WaterWheelBlockEntity::new)
+            .visual(() -> TofuWaterWheelVisual::standard, false)
+            .validBlocks(ModAllBlocks.TOFU_WATER_WHEEL)
+            .renderer(() -> TofuWaterWheelRenderer::standard)
+            .register();
 
     public static void register() {
     }

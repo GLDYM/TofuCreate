@@ -1,6 +1,8 @@
 package mod.ckenja.tofucreate.data;
 
+import baguchan.tofucraft.registry.TofuBlocks;
 import baguchan.tofucraft.registry.TofuItems;
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.content.kinetics.deployer.DeployerApplicationRecipe;
 import com.simibubi.create.content.kinetics.press.PressingRecipe;
@@ -60,27 +62,62 @@ public class CraftingGenerator extends CreateRecipeProvider {
                 .pattern("M")
                 .pattern("M")
                 .define('M', TofuItems.TOFUMETAL.get())
-                .unlockedBy("has_item", has(TofuItems.TOFUMETAL.get()));
+                .unlockedBy("has_item", has(TofuItems.TOFUMETAL.get()))
+                .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, ModAllBlocks.TOFU_COGWHEEL.get(), 1)
                 .requires(ModAllBlocks.TOFU_METAL_SHAFT.get())
                 .requires(ItemTags.PLANKS)
                 .unlockedBy("has_item", has(ModAllBlocks.TOFU_METAL_SHAFT.get()))
                 .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModAllBlocks.TOFU_LARGE_COGWHEEL, 1)
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, ModAllBlocks.TOFU_LARGE_COGWHEEL.get(), 1)
+                .requires(ModAllBlocks.TOFU_COGWHEEL.get())
+                .requires(ItemTags.PLANKS)
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_COGWHEEL.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModAllBlocks.TOFU_WATER_WHEEL, 1)
                 .pattern("SSS")
                 .pattern("SMS")
                 .pattern("SSS")
-                .define('M', ModAllBlocks.TOFU_COGWHEEL.get())
-                .define('S', ItemTags.WOODEN_SLABS)
-                .unlockedBy("has_item", has(ModAllBlocks.TOFU_COGWHEEL.get()));
+                .define('M', ModAllBlocks.TOFU_LARGE_COGWHEEL.get())
+                .define('S', ItemTags.PLANKS)
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_LARGE_COGWHEEL.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModAllBlocks.TOFU_GEARBOX, 1)
                 .pattern(" C ")
                 .pattern("CMC")
                 .pattern(" C ")
                 .define('M', ModAllBlocks.TOFU_METAL_CASING.get())
                 .define('C', ModAllBlocks.TOFU_COGWHEEL)
-                .unlockedBy("has_item", has(ModAllBlocks.TOFU_METAL_CASING.get()));
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_METAL_CASING.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, ModAllItems.TOFU_VERTICAL_GEARBOX.get(), 1)
+                .requires(ModAllBlocks.TOFU_GEARBOX)
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_GEARBOX.get()))
+                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.TRANSPORTATION, ModAllBlocks.TOFU_GEARBOX.get(), 1)
+                .requires(ModAllItems.TOFU_VERTICAL_GEARBOX)
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_GEARBOX.get()))
+                .save(consumer, TofuCreate.prefix("revert_tofu_gearbox"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AllBlocks.MILLSTONE, 1)
+                .pattern("C")
+                .pattern("T")
+                .pattern("S")
+                .define('S', TofuBlocks.TOFUSLATE)
+                .define('C', ModAllBlocks.TOFU_COGWHEEL)
+                .define('T', ModAllBlocks.TOFU_METAL_CASING.get())
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_METAL_CASING.get()))
+                .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AllBlocks.HAND_CRANK, 1)
+                .pattern("PPP")
+                .pattern("T  ")
+                .define('T', TofuItems.TOFUMETAL.get())
+                .define('P', ItemTags.PLANKS)
+                .unlockedBy("has_item", has(ModAllBlocks.TOFU_METAL_CASING.get()))
+                .save(consumer);
     }
 
     protected GeneratedRecipe create(String name, UnaryOperator<SequencedAssemblyRecipeBuilder> transform) {
