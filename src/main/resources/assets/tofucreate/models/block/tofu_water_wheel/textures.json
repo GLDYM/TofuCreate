@@ -1,0 +1,13 @@
+{
+  "parent": "create:block/large_wheels",
+  "ambientocclusion": false,
+  "textures": {
+    "axis": "tofucreate:block/tofu_axis",
+    "gearbox": "tofucreate:block/tofu_gearbox",
+    "axis_top": "tofucreate:block/tofu_axis_top",
+    "metal": "create:block/waterwheel_metal",
+    "log": "tofucraft:block/leek_stem",
+    "planks": "tofucraft:block/leek_planks",
+    "particle": "#planks"
+  }
+}

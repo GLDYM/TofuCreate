@@ -1,0 +1,11 @@
+{
+  "damage": 3,
+  "items": "tofucraft:seeds_soybeans_soul",
+  "knockback": 0.25,
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "sound_pitch": 1.2,
+  "split": 3,
+  "velocity_multiplier": 1.5
+}

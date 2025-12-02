@@ -5,7 +5,7 @@ import com.simibubi.create.AllItems;
 import com.simibubi.create.content.kinetics.deployer.DeployerApplicationRecipe;
 import com.simibubi.create.content.kinetics.press.PressingRecipe;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyRecipeBuilder;
-import com.simibubi.create.foundation.data.recipe.CreateRecipeProvider;
+import com.simibubi.create.api.data.recipe.SequencedAssemblyRecipeGen;
 import mod.ckenja.tofucreate.TofuCreate;
 import mod.ckenja.tofucreate.register.ModAllItems;
 import net.minecraft.data.PackOutput;
@@ -13,7 +13,7 @@ import net.minecraft.world.item.Items;
 
 import java.util.function.UnaryOperator;
 
-public class ModSequencedAssemblyRecipeGen extends CreateRecipeProvider {
+public class ModSequencedAssemblyRecipeGen extends SequencedAssemblyRecipeGen {
 
     GeneratedRecipe
 
@@ -40,8 +40,8 @@ public class ModSequencedAssemblyRecipeGen extends CreateRecipeProvider {
             .addStep(DeployerApplicationRecipe::new, rb -> rb.require(AllItems.ELECTRON_TUBE)));
 
 
-    public ModSequencedAssemblyRecipeGen(PackOutput p_i48262_1_) {
-        super(p_i48262_1_);
+    public ModSequencedAssemblyRecipeGen(PackOutput output) {
+        super(output, TofuCreate.MODID);
     }
 
     protected GeneratedRecipe create(String name, UnaryOperator<SequencedAssemblyRecipeBuilder> transform) {

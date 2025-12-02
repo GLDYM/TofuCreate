@@ -1,0 +1,14 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "create:block/large_cogwheel_shaftless",
+  "texture_size": [
+    32,
+    32
+  ],
+  "textures": {
+    "0": "tofucreate:block/tofu_cogwheel_axis",
+    "3": "tofucreate:block/tofu_axis_top",
+    "4": "tofucreate:block/tofu_large_cogwheel",
+    "particle": "tofucraft:block/leek_stem"
+  }
+}

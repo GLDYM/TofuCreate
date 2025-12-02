@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "Y": {
+      "item": "tofucraft:yuba"
+    }
+  },
+  "pattern": [
+    "YYY",
+    "YYY"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tofucreate:yuba_connector"
+  }
+}

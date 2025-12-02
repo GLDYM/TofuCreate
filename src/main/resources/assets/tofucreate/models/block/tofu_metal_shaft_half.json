@@ -1,0 +1,9 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "create:block/shaft_half",
+  "textures": {
+    "0": "tofucreate:block/tofu_axis",
+    "1": "tofucreate:block/tofu_axis_top",
+    "particle": "tofucreate:block/tofu_axis"
+  }
+}

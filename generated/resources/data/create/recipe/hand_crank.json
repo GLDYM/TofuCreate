@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "T": {
+      "item": "tofucraft:tofumetal"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "T  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "create:hand_crank"
+  }
+}

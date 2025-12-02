@@ -8,6 +8,7 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -33,6 +34,12 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), generatedEntriesProvider);
 
         event.getGenerator().addProvider(event.includeClient(), new ItemModelGenerator(packOutput, existingFileHelper));
+        BlockTagsProvider blocktags = new BlockTagGenerator(packOutput, lookupProvider, existingFileHelper);
+        generator.addProvider(event.includeServer(), blocktags);
+        generator.addProvider(event.includeServer(), new ItemTagGenerator(packOutput, lookupProvider, blocktags.contentsGetter(), existingFileHelper));
+    
+        generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
+        event.getGenerator().addProvider(event.includeServer(), new ModItemApplicationRecipeGen(packOutput));
         event.getGenerator().addProvider(event.includeServer(), new ModEmptyingRecipeGen(packOutput));
         event.getGenerator().addProvider(event.includeServer(), new ModFillingRecipeGen(packOutput));
         event.getGenerator().addProvider(event.includeServer(), new ModMixingRecipeGen(packOutput));

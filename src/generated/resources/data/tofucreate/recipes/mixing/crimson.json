@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:crimson_fungus"
+    },
+    {
+      "item": "minecraft:shroomlight"
+    }
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "fluid": "tofucreate:crimson"
+    }
+  ]
+}

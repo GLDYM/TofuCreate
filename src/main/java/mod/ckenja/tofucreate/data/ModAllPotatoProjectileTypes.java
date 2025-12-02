@@ -61,6 +61,6 @@ public class ModAllPotatoProjectileTypes {
     }
 
     private static void register(BootstapContext<PotatoCannonProjectileType> ctx, String name, PotatoCannonProjectileType type) {
-        ctx.register(ResourceKey.create(CreateRegistries.POTATO_PROJECTILE_TYPE, new ResourceLocation(TofuCreate.MODID, name)), type);
+        ctx.register(ResourceKey.create(CreateRegistries.POTATO_PROJECTILE_TYPE, ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, name)), type);
     }
 }

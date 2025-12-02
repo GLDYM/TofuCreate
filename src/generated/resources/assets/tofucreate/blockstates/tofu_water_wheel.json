@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "tofucreate:block/tofu_water_wheel/block",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "tofucreate:block/tofu_water_wheel/block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tofucreate:block/tofu_water_wheel/block",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "tofucreate:block/tofu_water_wheel/block",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "tofucreate:block/tofu_water_wheel/block"
+    },
+    "facing=west": {
+      "model": "tofucreate:block/tofu_water_wheel/block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

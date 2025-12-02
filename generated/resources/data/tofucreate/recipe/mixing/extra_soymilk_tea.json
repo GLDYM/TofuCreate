@@ -1,0 +1,21 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "type": "fluid_stack",
+      "amount": 1000,
+      "fluid": "tofucraft:soymilk"
+    },
+    {
+      "type": "fluid_stack",
+      "amount": 250,
+      "fluid": "create:tea"
+    }
+  ],
+  "results": [
+    {
+      "amount": 1250,
+      "id": "tofucreate:soymilk_tea"
+    }
+  ]
+}
