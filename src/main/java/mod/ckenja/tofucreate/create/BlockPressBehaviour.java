@@ -20,6 +20,8 @@ public class BlockPressBehaviour extends BlockEntityBehaviour {
     public MechanicalPressBlockEntity pressTileEntity;
     int entityScanCooldown;
     boolean onBlock;
+    Block lastBlock;
+    ItemStack lastResult = ItemStack.EMPTY;
 
     public BlockPressBehaviour(MechanicalPressBlockEntity tileEntity) {
         super(tileEntity);
@@ -31,6 +33,7 @@ public class BlockPressBehaviour extends BlockEntityBehaviour {
         return TYPE;
         //return new BehaviourType<>("tofu_block_press_behaviour");
     }
+
     @Override
     public void tick() {
         super.tick();
@@ -45,15 +48,31 @@ public class BlockPressBehaviour extends BlockEntityBehaviour {
                     entityScanCooldown--;
                 if (entityScanCooldown <= 0) {
                     entityScanCooldown = ENTITY_SCAN;
-                    ItemStack result = RecipeHelper.getTofu((ServerLevel) level, level.getBlockState(worldPosition.below(2)).getBlock());
-                    if (result != null) {
-                        onBlock = true;
-                        pressTileEntity.pressingBehaviour.running = true;
-                        pressTileEntity.pressingBehaviour.prevRunningTicks = 0;
-                        pressTileEntity.pressingBehaviour.runningTicks = 0;
-                        pressTileEntity.pressingBehaviour.particleItems.clear();
-                        pressTileEntity.pressingBehaviour.mode.headOffset = 19f / 16f;
-                        blockEntity.sendData();
+                    if(level.getBlockState(worldPosition.below(2)).getBlock() != lastBlock) {
+                        lastBlock = level.getBlockState(worldPosition.below(2)).getBlock();
+                        ItemStack result = RecipeHelper.getTofu((ServerLevel) level, level.getBlockState(worldPosition.below(2)).getBlock());
+                        if (result != null) {
+                            lastResult = result.copy();
+                            onBlock = true;
+                            pressTileEntity.pressingBehaviour.running = true;
+                            pressTileEntity.pressingBehaviour.prevRunningTicks = 0;
+                            pressTileEntity.pressingBehaviour.runningTicks = 0;
+                            pressTileEntity.pressingBehaviour.particleItems.clear();
+                            pressTileEntity.pressingBehaviour.mode.headOffset = 19f / 16f;
+                            blockEntity.sendData();
+                        }else {
+                            lastResult = ItemStack.EMPTY;
+                        }
+                    }else {
+                        if (this.lastResult != null) {
+                            onBlock = true;
+                            pressTileEntity.pressingBehaviour.running = true;
+                            pressTileEntity.pressingBehaviour.prevRunningTicks = 0;
+                            pressTileEntity.pressingBehaviour.runningTicks = 0;
+                            pressTileEntity.pressingBehaviour.particleItems.clear();
+                            pressTileEntity.pressingBehaviour.mode.headOffset = 19f / 16f;
+                            blockEntity.sendData();
+                        }
                     }
                 }
             }
@@ -68,15 +87,14 @@ public class BlockPressBehaviour extends BlockEntityBehaviour {
                 else
                     blockEntity.sendData();
 
-                ItemStack result = RecipeHelper.getTofu((ServerLevel) level, level.getBlockState(worldPosition.below(2)).getBlock());
-                if (result == null)
+                if (lastResult.isEmpty())
                     return;
                 if (level.random.nextInt(30) != 0) {
                     level.levelEvent(2001, worldPosition.below(2), Block.getId(level.getBlockState(worldPosition.below(2))));
 
                     return;
                 }
-                level.setBlock(worldPosition.below(2), Block.byItem(result.getItem()).defaultBlockState(), 11);
+                level.setBlock(worldPosition.below(2), Block.byItem(lastResult.getItem()).defaultBlockState(), 11);
                 level.levelEvent(2001, worldPosition.below(2), Block.getId(level.getBlockState(worldPosition.below(2))));
             }
         }
