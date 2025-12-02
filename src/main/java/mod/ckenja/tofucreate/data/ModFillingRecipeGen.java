@@ -50,7 +50,7 @@ public class ModFillingRecipeGen extends ProcessingRecipeGen {
                     .require(ModAllFluids.SOYMILK_TEA.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.SOYMILK_TEA.get())),
             SOYMILK_STRAWBERRY = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "fill_soymilk_strawberry"), b -> (com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder<com.simibubi.create.content.processing.recipe.ProcessingRecipe<?>>) b
                     .require(ModAllFluids.SOYMILK_STRAWBERRY.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.SOYMILK_STRAWBERRY.get())),
-            CRIMSON_FLUID = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "fill_crisom"), b -> b
+            CRIMSON_FLUID = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "fill_crimson"), b -> b
                     .require(TofuFluids.CRIMSON.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.CRIMSON_BOTTLE.get())),
             WARPED_FLUID = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "fill_warped"), b -> (com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder<com.simibubi.create.content.processing.recipe.ProcessingRecipe<?>>) b
                     .require(TofuFluids.WARPED.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.WARPED_BOTTLE.get()));

@@ -52,7 +52,7 @@ public class ModEmptyingRecipeGen extends ProcessingRecipeGen {
                     .output(ModAllFluids.SOYMILK_STRAWBERRY.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.SOYMILK_STRAWBERRY.get())),
             SOYOIL = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_soyoil"), b -> b
                     .output(ModAllFluids.SOYOIL.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.BOTTLE_SOYOIL.get())),
-            CRIMSON_FLUID = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_crisom"), b -> b
+            CRIMSON_FLUID = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_crimson"), b -> b
                     .output(TofuFluids.CRIMSON.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.CRIMSON_BOTTLE.get())),
             WARPED_FLUID = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "emptying_warped"), b -> b
                     .output(TofuFluids.WARPED.get(), 250).output(Items.GLASS_BOTTLE).require(TofuItems.WARPED_BOTTLE.get()));
