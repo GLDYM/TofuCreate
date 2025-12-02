@@ -73,7 +73,15 @@ public class ModMixingRecipeGen extends ProcessingRecipeGen {
             SOYMILK_TEA = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "soymilk_tea"), b -> b
                     .require(TofuItems.SEEDS_SOYBEANS.get())
                     .require(com.simibubi.create.AllFluids.TEA.get(), 250)
-                    .output(ModAllFluids.SOYMILK_TEA.get(), 1250));
+                    .output(ModAllFluids.SOYMILK_TEA.get(), 1250)),
+            WARPED = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "warped"), b -> b
+                    .require(Items.WARPED_FUNGUS)
+                    .require(Items.SHROOMLIGHT)
+                    .output(TofuFluids.WARPED.get(), 1000)),
+            CRIMSON = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "crimson"), b -> b
+                    .require(Items.CRIMSON_FUNGUS)
+                    .require(Items.SHROOMLIGHT)
+                    .output(TofuFluids.CRIMSON.get(), 1000));
 
 
     GeneratedRecipe

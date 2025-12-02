@@ -57,6 +57,15 @@ public class ModAllFluids {
     public static final FluidEntry<VirtualFluid> SOYMILK_TEA =
             registrate.virtualFluid("soymilk_tea", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFACF96, 0xFACF96), ModAllFluids::createSource, ModAllFluids::createFlowing)
                     .register();
+    public static final FluidEntry<VirtualFluid> SOYMILK_STRAWBERRY =
+            registrate.virtualFluid("soymilk_strawberry", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFF0A1B4, 0xF0A1B4), ModAllFluids::createSource, ModAllFluids::createFlowing)
+                    .register();
+
+    public static final FluidEntry<VirtualFluid> SOYOIL =
+            registrate.virtualFluid("soyoil", ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk"), ResourceLocation.fromNamespaceAndPath(TofuCraftReload.MODID, "block/soymilk_flow"), create(0xFFFFFF00, 0xFFFF00), ModAllFluids::createSource, ModAllFluids::createFlowing)
+                    .register();
+
+
     public static void register() {}
 
 

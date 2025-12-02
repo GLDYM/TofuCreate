@@ -47,7 +47,14 @@ public class ModFillingRecipeGen extends ProcessingRecipeGen {
             SOYMILK_SAKURA = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "fill_soymilk_sakura"), b -> b
                     .require(ModAllFluids.SOYMILK_SAKURA.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.SOYMILK_SAKURA.get())),
             SOYMILK_TEA = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "fill_soymilk_tea"), b -> b
-                    .require(ModAllFluids.SOYMILK_TEA.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.SOYMILK_TEA.get()));
+                    .require(ModAllFluids.SOYMILK_TEA.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.SOYMILK_TEA.get())),
+            SOYMILK_STRAWBERRY = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "fill_soymilk_strawberry"), b -> (com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder<com.simibubi.create.content.processing.recipe.ProcessingRecipe<?>>) b
+                    .require(ModAllFluids.SOYMILK_STRAWBERRY.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.SOYMILK_STRAWBERRY.get())),
+            CRIMSON_FLUID = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "fill_crisom"), b -> b
+                    .require(TofuFluids.CRIMSON.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.CRIMSON_BOTTLE.get())),
+            WARPED_FLUID = create(ResourceLocation.fromNamespaceAndPath(TofuCreate.MODID, "fill_warped"), b -> (com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder<com.simibubi.create.content.processing.recipe.ProcessingRecipe<?>>) b
+                    .require(TofuFluids.WARPED.get(), 250).require(Items.GLASS_BOTTLE).output(TofuItems.WARPED_BOTTLE.get()));
+
 
 
 
