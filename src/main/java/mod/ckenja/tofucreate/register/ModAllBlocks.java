@@ -55,7 +55,6 @@ public class ModAllBlocks {
             .properties(p -> p.sound(SoundType.WOOD)
                     .mapColor(MapColor.DIRT))
             .transform(axeOrPickaxe())
-            .transform(TCStress.setImpact(0.01D))
             .blockstate(BlockStateGen.axisBlockProvider(false))
             .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
             .item(TofuCogwheelBlockItem::new)
@@ -68,7 +67,6 @@ public class ModAllBlocks {
                     .properties(p -> p.sound(SoundType.WOOD)
                             .mapColor(MapColor.DIRT))
                     .transform(axeOrPickaxe())
-                    .transform(TCStress.setImpact(0.01D))
                     .blockstate(BlockStateGen.axisBlockProvider(false))
                     .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
                     .item(TofuCogwheelBlockItem::new)
@@ -84,7 +82,6 @@ public class ModAllBlocks {
             .properties(p -> p.noOcclusion()
                     .mapColor(MapColor.PODZOL))
             .transform(axeOrPickaxe())
-            .transform(TCStress.setImpact(0.01D))
             .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(ModAllSpriteShifts.TOFU_METAL_CASING)))
             .onRegister(CreateRegistrate.casingConnectivity((block, cc) -> cc.make(block, ModAllSpriteShifts.TOFU_METAL_CASING,
                     (s, f) -> f.getAxis() == s.getValue(TofuGearboxBlock.AXIS))))
@@ -171,8 +168,7 @@ public class ModAllBlocks {
 
     private static <B extends TofuEncasedCogwheelBlock, P> BlockBuilder<B, P> encasedCogwheelBase(BlockBuilder<B, P> b,
                                                                                                   String casing, Supplier<CTSpriteShiftEntry> casingShift, Supplier<ItemLike> drop, boolean large) {
-        return encasedBase(b, drop)
-                .transform(TCStress.setImpact(0.01D));
+        return encasedBase(b, drop);
     }
 
     private static <B extends RotatedPillarKineticBlock, P> BlockBuilder<B, P> encasedBase(BlockBuilder<B, P> b,
