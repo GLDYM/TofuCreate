@@ -30,6 +30,6 @@ versionRange = "[1.20.1,)"
 [[dependencies.tofucreate]]
     modId="create"
     mandatory=true
-versionRange = "[6.0.4,)"
-    ordering="NONE"
+    versionRange = "[6.0.7,)"
+    ordering="AFTER"
     side="BOTH"
