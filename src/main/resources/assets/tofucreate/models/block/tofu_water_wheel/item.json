@@ -1,6 +1,6 @@
 {
-  "parent": "tofucreate:block/water_wheel/textures",
-  "loader": "neoforge:obj",
+  "parent": "tofucreate:block/tofu_water_wheel/textures",
+  "loader": "forge:obj",
   "flip_v": true,
   "model": "create:models/block/water_wheel/water_wheel_item.obj",
   "textures": {

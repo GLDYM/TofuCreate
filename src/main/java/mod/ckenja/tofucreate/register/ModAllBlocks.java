@@ -83,6 +83,7 @@ public class ModAllBlocks {
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.noOcclusion()
                     .mapColor(MapColor.PODZOL))
+	    .transform(TCStress.setNoImpact())
             .transform(axeOrPickaxe())
             .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(ModAllSpriteShifts.TOFU_METAL_CASING)))
             .onRegister(CreateRegistrate.casingConnectivity((block, cc) -> cc.make(block, ModAllSpriteShifts.TOFU_METAL_CASING,
@@ -161,7 +162,7 @@ public class ModAllBlocks {
                 .onRegister(CreateRegistrate.casingConnectivity((block, cc) -> cc.make(block, casingShift.get(),
                         (s, f) -> f.getAxis() != s.getValue(EncasedShaftBlock.AXIS))))
                 .blockstate((c, p) -> axisBlock(c, p, blockState -> p.models()
-                        .getExistingFile(p.modLoc("block/encased_shaft/block_" + casing)), true))
+                        .getExistingFile(p.modLoc("block/tofu_encased_shaft/block_" + casing)), true))
                 .transform(TCStress.setNoImpact());
     }
 

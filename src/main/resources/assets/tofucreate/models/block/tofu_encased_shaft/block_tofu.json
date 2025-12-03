@@ -3,6 +3,6 @@
   "parent": "create:block/encased_shaft/block",
   "textures": {
     "casing": "tofucreate:block/tofu_metal_casing",
-    "opening": "tofucreate:block/gearbox"
+    "opening": "tofucreate:block/tofu_gearbox"
   }
 }

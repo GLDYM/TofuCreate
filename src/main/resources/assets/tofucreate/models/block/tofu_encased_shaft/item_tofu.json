@@ -1,5 +1,5 @@
 {
-  "parent": "create:block/encased_shaft/item",
+  "parent": "create:block/tofu_encased_shaft/item",
   "render_type": "minecraft:cutout",
   "textures": {
     "casing": "tofucreate:block/tofu_casing",
