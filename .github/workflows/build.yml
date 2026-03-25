@@ -5,6 +5,8 @@ on:
     branches: [mc1.20-redo]
   pull_request:
     branches: [mc1.20-redo]
+  workflow_dispatch:
+    ~
 
 jobs:
   build:
